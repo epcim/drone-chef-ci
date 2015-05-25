@@ -1,4 +1,4 @@
-FROM jpetazzo/dind  # ubuntu:14.04
+FROM jpetazzo/dind
 MAINTAINER Petr Michalec <epcim@apealive.net>
 
 RUN apt-get update
