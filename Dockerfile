@@ -1,4 +1,4 @@
-FROM jencryzthers/vboxinsidedocker #ubuntu:14.04
+FROM jencryzthers/vboxinsidedocker
 MAINTAINER Petr Michalec <epcim@apealive.net>
 
 RUN apt-get update
