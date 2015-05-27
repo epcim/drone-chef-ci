@@ -8,7 +8,8 @@ RUN apt-get install -qqy    curl \
                             mercurial \
                             subversion \
                             ca-certificates \
-                            locales
+                            locales \
+                            jq
 
 RUN echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen
 RUN locale-gen en_US.UTF-8
