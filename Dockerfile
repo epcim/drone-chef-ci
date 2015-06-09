@@ -28,11 +28,20 @@ RUN eval "$(chef shell-init bash)"
 RUN chef gem install kitchen-docker
 
 
+# berks pre-fetch some common soup of cookbooks
+RUN mkdir /tmp/fake_cookbook; cd $_
+RUN echo -e "source 'https://supermarket.chef.io'\nmetadata\n\n" > Berksfile
+RUN echo -e "cookbook '7-zip'\ncookbook 'apache2'\ncookbook 'apt'\ncookbook 'ark'\ncookbook 'bluepill'\ncookbook 'build-essential'\ncookbook 'certificate'\ncookbook 'chef-client'\ncookbook 'chef_handler'\ncookbook 'chef_ruby'\ncookbook 'chef-sugar'\ncookbook 'chef-vault'\ncookbook 'cron'\ncookbook 'database'\ncookbook 'device-mapper'\ncookbook 'dpkg_autostart'\ncookbook 'git'\ncookbook 'minitest-handler'\ncookbook 'modules'\ncookbook 'mysql'\ncookbook 'mysql2_chef_gem'\ncookbook 'ncurses'\ncookbook 'nginx'\ncookbook 'nginx_simplecgi'\ncookbook 'nscd'\ncookbook 'ntp'\ncookbook 'ohai'\ncookbook 'openldap'\ncookbook 'openssh'\ncookbook 'openssl'\ncookbook 'openvpn'\ncookbook 'packagecloud'\ncookbook 'pacman'\ncookbook 'passenger_apache2'\ncookbook 'perl'\ncookbook 'postfix'\ncookbook 'postgresql'\ncookbook 'rbac'\ncookbook 'rbenv'\ncookbook 'readline'\ncookbook 'redisio'\ncookbook 'resolver'\ncookbook 'resource-control'\ncookbook 'rsyslog'\ncookbook 'ruby'\ncookbook 'ruby_build'\ncookbook 'runit'\ncookbook 'simple_iptables'\ncookbook 'smf'\ncookbook 'subversion'\ncookbook 'sudo'\ncookbook 'sysctl'\ncookbook 'system'\ncookbook 'ulimit'\ncookbook 'users'\ncookbook 'windows'\ncookbook 'xml'\ncookbook 'yum'\ncookbook 'yum-epel'\ncookbook 'yum-mysql-community'\ncookbook 'zlib'\n" >> Berksfile
+RUN chef exec berks install
+RUN cd -
+
+
 ## FIX UP'S ##########################
 RUN chmod -R 0440 /etc/sudoers
 RUN chmod -R 0440 /etc/sudoers.d
 # workaround (drone.io has no way yet to modify this image before git clone happens)
 RUN git config --global http.sslverify false
+
 
 
 
