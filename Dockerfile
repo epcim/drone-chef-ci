@@ -35,6 +35,14 @@ RUN echo "source 'https://supermarket.chef.io'\nmetadata\n\n" > Berksfile
 RUN echo "cookbook '7-zip'\ncookbook 'apache2'\ncookbook 'apt'\ncookbook 'ark'\ncookbook 'bluepill'\ncookbook 'build-essential'\ncookbook 'certificate'\ncookbook 'chef-client'\ncookbook 'chef_handler'\ncookbook 'chef_ruby'\ncookbook 'chef-sugar'\ncookbook 'chef-vault'\ncookbook 'cron'\ncookbook 'database'\ncookbook 'device-mapper'\ncookbook 'git'\ncookbook 'minitest-handler'\ncookbook 'modules'\ncookbook 'ncurses'\ncookbook 'nginx'\ncookbook 'ntp'\ncookbook 'ohai'\ncookbook 'openssh'\ncookbook 'openssl'\ncookbook 'packagecloud'\ncookbook 'pacman'\ncookbook 'perl'\ncookbook 'rbenv'\ncookbook 'readline'\ncookbook 'resolver'\ncookbook 'resource-control'\ncookbook 'rsyslog'\ncookbook 'ruby'\ncookbook 'ruby_build'\ncookbook 'runit'\ncookbook 'subversion'\ncookbook 'sudo'\ncookbook 'sysctl'\ncookbook 'system'\ncookbook 'ulimit'\ncookbook 'users'\ncookbook 'windows'\ncookbook 'xml'\ncookbook 'yum'\ncookbook 'yum-epel'\ncookbook 'zlib'\n" >> Berksfile
 RUN chef exec berks install
 RUN cd -
+RUN pwd
+RUN id
+RUN ls -la
+RUN ls -la ~/
+RUN ls -la /tmp/fake_cookbook
+RUN ls -la /root/
+RUN ls -la /root/.berkshelf
+RUN ls -la /root/.berkshelf/cookbooks
 
 
 ## FIX UP'S #####################
