@@ -29,6 +29,8 @@ RUN chef gem install kitchen-docker
 RUN chef gem install kitchen-openstack
 RUN chef gem install chef-sugar
 RUN chef gem install chef-rewind
+RUN chef gem install serverspec
+RUN chef gem install infratester
 
 
 # berks pre-fetch some common soup of cookbooks
