@@ -26,6 +26,9 @@ RUN eval "$(chef shell-init bash)"
 
 
 RUN chef gem install kitchen-docker
+RUN chef gem install kitchen-openstack
+RUN chef gem install chef-sugar
+RUN chef gem install chef-rewind
 
 
 # berks pre-fetch some common soup of cookbooks
