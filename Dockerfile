@@ -30,7 +30,11 @@ RUN chef gem install kitchen-openstack
 RUN chef gem install chef-sugar
 RUN chef gem install chef-rewind
 RUN chef gem install serverspec
-RUN chef gem install infratester
+RUN chef gem install infrataster
+RUN chef gem install knife-spork
+RUN chef gem install knife-zero
+RUN chef gem install colorize
+
 
 
 
