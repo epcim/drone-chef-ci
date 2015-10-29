@@ -1,6 +1,9 @@
 FROM jpetazzo/dind
 MAINTAINER Petr Michalec <epcim@apealive.net>
 
+# RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
+# Core
 RUN apt-get update
 RUN apt-get install -qqy    curl \
                             sudo \
@@ -10,6 +13,9 @@ RUN apt-get install -qqy    curl \
                             ca-certificates \
                             locales \
                             jq
+# Build tools
+RUN apt-get install -qqy build-essential bison openssl libreadline6 libreadline6-dev curl git-core zlib1g zlib1g-dev libssl-dev libyaml-dev libxml2-dev autoconf l
+ibc6-dev ncurses-dev automake libtool
 
 RUN echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen
 RUN locale-gen en_US.UTF-8
@@ -27,6 +33,7 @@ RUN eval "$(bash -c \"chef shell-init bash\")"
 
 RUN chef gem install kitchen-docker
 RUN chef gem install kitchen-openstack
+RUN chef gem install knife-softlayer
 RUN chef gem install knife-spork
 RUN chef gem install knife-zero
 RUN chef gem install chef-sugar
@@ -34,6 +41,10 @@ RUN chef gem install chef-rewind
 RUN chef gem install serverspec
 RUN chef gem install infrataster
 RUN chef gem install colorize
+RUN chef gem install rubocop
+RUN chef gem install chefspec
+RUN chef gem install fauxhai
+RUN chef gem install knife-solo
 
 
 # berks pre-fetch some common soup of cookbooks
