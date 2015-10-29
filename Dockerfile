@@ -52,9 +52,6 @@ RUN chmod -R 0440 /etc/sudoers.d
 RUN git config --global http.sslverify false
 
 
-
-
 VOLUME /var/lib/docker
 CMD ["wrapdocker"]
-
 
