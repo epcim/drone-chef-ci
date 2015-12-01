@@ -1,4 +1,4 @@
-FROM docker/dind
+FROM docker:dind
 #FROM jpetazzo/dind
 MAINTAINER Petr Michalec <epcim@apealive.net>
 
