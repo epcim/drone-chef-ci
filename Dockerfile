@@ -23,6 +23,9 @@ ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
 
+## Install Docker CLI
+curl -sSL https://get.docker.com/ | sh
+
 ## CHEF DK ###########################
 RUN curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
 ENV PATH /opt/chefdk/bin:/.chefdk/gem/ruby/2.1.0/bin:/opt/chefdk/embedded/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
