@@ -1,5 +1,11 @@
-FROM docker:dind
-#FROM jpetazzo/dind
+FROM jpetazzo/dind
+
+# Build fails
+
+# DIND is no longer needed for drone and for CI in general
+# see: http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/
+
+
 MAINTAINER Petr Michalec <epcim@apealive.net>
 
 # RUN rm /bin/sh && ln -s /bin/bash /bin/sh
@@ -22,9 +28,6 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
-
-## Install Docker CLI
-curl -sSL https://get.docker.com/ | sh
 
 ## CHEF DK ###########################
 RUN curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
