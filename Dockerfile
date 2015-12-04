@@ -21,6 +21,8 @@ RUN locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 
+## Install Docker CLI
+RUN curl -sSL https://get.docker.com/ | sh
 
 ## CHEF DK ###########################
 RUN curl -L https://www.opscode.com/chef/install.sh | sudo bash -s -- -P chefdk
